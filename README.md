@@ -61,7 +61,9 @@ make docker-run
   "destination": "/path/to/saved/file",
   "size": 12345,
   "duration_ms": 42,
-  "transfer_rate": "10.5 MB/s"
+  "transfer_rate": "10.5 MB/s",
+  "memory_used_mb": "8.45 MB",
+  "cpu_usage": "12.3%"
 }
 ```
 
@@ -94,14 +96,17 @@ The application logs detailed performance metrics for each upload:
 - File size
 - Upload duration (both total and just the file copy operation)
 - Transfer rate in MB/s
+- Memory usage (peak and used)
+- CPU usage (estimated percentage)
+- Number of goroutines
 
 All uploads are automatically benchmarked and their results are appended to a `benchmark.txt` file with the following format:
 
 ```
-[2025-04-10T15:34:12Z] File: example.jpg, Size: 5242880 bytes, Duration: 235.42ms, Transfer Rate: 21.25 MB/s
+[2025-04-10T15:34:12Z] File: example.jpg, Size: 5242880 bytes, Duration: 235.42ms, Transfer Rate: 21.25 MB/s, Memory Used: 8.45 MB, CPU Usage: 12.3%, Goroutines: 15
 ```
 
-This allows tracking performance over time and across different types of files.
+This allows tracking performance over time and across different types of files. The memory metrics help identify potential memory leaks or inefficient resource usage, while CPU metrics and goroutine count provide insights into processing efficiency.
 
 ## Development
 
