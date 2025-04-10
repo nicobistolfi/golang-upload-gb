@@ -1,4 +1,4 @@
-# upload-gb
+# Upload GB
 
 A simple HTTP file upload service built with Go and Gin.
 
