@@ -19,3 +19,6 @@ upload-gb
 # OS specific files
 .DS_Store
 Thumbs.db
+
+# Benchmark
+benchmark.txt
